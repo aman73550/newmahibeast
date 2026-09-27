@@ -21,7 +21,7 @@ export const DEFAULT_SITE_CONFIG: SiteConfig = {
       "Purchased her dream BMW in cash — documented every milestone to inspire thousands.",
       "Dedicated to running 100% free community drops with zero paid courses or hidden upsells."
     ],
-    "photoUrl": "/Images/founder-section-portrait.webp",
+    "photoUrl": "/images/founder-section-portrait.webp",
     "location": "Mumbai & Dubai",
     "achievements": [
       {

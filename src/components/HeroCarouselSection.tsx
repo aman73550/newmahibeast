@@ -18,31 +18,31 @@ export interface CarouselSlide {
 const DEFAULT_SLIDES: CarouselSlide[] = [
   {
     id: 1,
-    imageUrl: '/Images/hero-slide-01.webp',
+    imageUrl: '/images/hero-slide-01.webp',
     title: 'Dubai Lifestyle & Drive',
     subtitle: 'From zero capital to keys in hand',
   },
   {
     id: 2,
-    imageUrl: '/Images/hero-slide-02.webp',
+    imageUrl: '/images/hero-slide-02.webp',
     title: 'Luxury Shopping Days',
     subtitle: 'Louis Vuitton & Chanel in Dubai Mall',
   },
   {
     id: 3,
-    imageUrl: '/Images/hero-slide-03.webp',
+    imageUrl: '/images/hero-slide-03.webp',
     title: 'Sheikh Zayed Grand Mosque',
     subtitle: 'Peace, culture & timeless elegance',
   },
   {
     id: 4,
-    imageUrl: '/Images/hero-slide-04.webp',
+    imageUrl: '/images/hero-slide-04.webp',
     title: 'Dubai Marina Waterfront',
     subtitle: 'Living life on my own terms',
   },
   {
     id: 5,
-    imageUrl: '/Images/hero-slide-05.webp',
+    imageUrl: '/images/hero-slide-05.webp',
     title: 'Downtown Dubai Nights',
     subtitle: 'Skyline view of Burj Khalifa',
   },
@@ -260,7 +260,18 @@ export const HeroCarouselSection: React.FC<HeroCarouselSectionProps> = ({
                       <img
                         src={slide.imageUrl}
                         alt={`Slide ${slide.id}`}
-                        onError={() => {
+                        onError={(e) => {
+                          const target = e.currentTarget;
+                          if (!target.dataset.triedAlt) {
+                            target.dataset.triedAlt = '1';
+                            if (slide.imageUrl.startsWith('/images/')) {
+                              target.src = slide.imageUrl.replace('/images/', '/Images/');
+                              return;
+                            } else if (slide.imageUrl.startsWith('/Images/')) {
+                              target.src = slide.imageUrl.replace('/Images/', '/images/');
+                              return;
+                            }
+                          }
                           setImageErrors((prev) => ({ ...prev, [slide.id]: true }));
                         }}
                         className="w-full h-full object-cover object-center transition-transform duration-700 hover:scale-105"

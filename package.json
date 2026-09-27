@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "tsx server.ts",
-    "build": "vite build && node -e \"const fs=require('fs'); fs.mkdirSync('dist/bosspage', {recursive: true}); fs.copyFileSync('dist/index.html', 'dist/bosspage/index.html'); fs.copyFileSync('dist/index.html', 'dist/404.html');\"",
+    "build": "vite build && node -e \"const fs=require('fs'); fs.mkdirSync('dist/bosspage', {recursive: true}); fs.copyFileSync('dist/index.html', 'dist/bosspage/index.html'); fs.copyFileSync('dist/index.html', 'dist/404.html'); if(fs.existsSync('dist/images')){fs.cpSync('dist/images', 'dist/Images', {recursive: true, force: true}); if(fs.existsSync('dist/images/founder-section-portrait.webp')){fs.copyFileSync('dist/images/founder-section-portrait.webp', 'dist/founder.webp');}} if(fs.existsSync('dist/Images')){fs.cpSync('dist/Images', 'dist/images', {recursive: true, force: true});}\"",
     "start": "node server.ts",
     "preview": "vite preview",
     "clean": "rm -rf dist server.js",

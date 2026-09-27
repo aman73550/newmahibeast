@@ -23,14 +23,16 @@ export const FounderSection: React.FC<FounderSectionProps> = ({ founder }) => {
             <div className="lg:col-span-5 flex flex-col items-center">
               <div className="relative group w-64 h-80 sm:w-72 sm:h-96 rounded-3xl overflow-hidden glass-panel border border-amber-400/20 shadow-[0_20px_50px_rgba(0,0,0,0.6)]">
                 <img
-                  src="/Images/founder-section-portrait.webp"
+                  src="/images/founder-section-portrait.webp"
                   alt={founder.name}
                   loading="eager"
                   onError={(e) => {
-                    // Try alternative case / founder.webp fallback if not found yet
                     const target = e.currentTarget;
-                    if (!target.dataset.triedFallback) {
-                      target.dataset.triedFallback = '1';
+                    if (!target.dataset.triedFallback1) {
+                      target.dataset.triedFallback1 = '1';
+                      target.src = '/Images/founder-section-portrait.webp';
+                    } else if (!target.dataset.triedFallback2) {
+                      target.dataset.triedFallback2 = '1';
                       target.src = '/founder.webp';
                     }
                   }}
