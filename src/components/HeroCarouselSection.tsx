@@ -134,8 +134,8 @@ export const HeroCarouselSection: React.FC<HeroCarouselSectionProps> = ({
 
       <div className="max-w-6xl mx-auto px-6 sm:px-8 lg:px-12 text-center w-full">
         {/* Dynamic Section Headline - Single line compact format with side padding */}
-        <div className="px-4 sm:px-6 inline-block max-w-full">
-          <h1 className="text-xl sm:text-2xl md:text-3xl font-extrabold tracking-tight text-white mb-3 sm:mb-4 leading-tight font-display inline-flex items-center justify-center gap-2 flex-wrap">
+        <div className="px-3 sm:px-6 inline-block max-w-full text-center">
+          <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight text-white mb-3 sm:mb-4 leading-tight font-display inline-flex items-center justify-center gap-2 sm:gap-3 flex-wrap text-center">
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-white via-slate-100 to-slate-300">
               Welcome to
             </span>
